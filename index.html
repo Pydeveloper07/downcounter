@@ -22,6 +22,7 @@
             background-size: cover;
             background-position: center;
             margin: 0;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -49,14 +50,35 @@
         .subtext {
             font-size: 0.5em;
         }
+
+        #heartButton {
+            margin: 0 10px;
+        }
+
         #heartButton:hover {
             cursor: pointer;
+        }
+
+        #heartButton img {
+            width: 60px; /* Adjust size of heart image */
+            height: auto;
+            animation: vibratingHeart 0.7s infinite alternate; /* Apply the vibrating animation */
+        }
+
+        @keyframes vibratingHeart {
+            from {
+                transform: scale(1.2); /* Start position */
+            }
+            to {
+                transform: scale(1.5); /* End position (adjust for desired movement) */
+            }
         }
     </style>
 </head>
 <body>
 <div id="mainTitle">
-    <span class="bungee-spice-regular">Ayyub</span><span id="heartButton" onclick="playAudio()">❤️</span><span class="bungee-spice-regular">Beg'ubor</span>
+    <span class="bungee-spice-regular">Ayyub</span><span id="heartButton" onclick="playAudio()"><img src="heart.png" alt="Heart"></span><span
+        class="bungee-spice-regular">Beg'ubor</span>
 </div>
 <div id="wordWedding" class="bungee-spice-regular">
     Until Wedding
