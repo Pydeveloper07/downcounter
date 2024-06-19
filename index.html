@@ -56,9 +56,12 @@
     <span class="bungee-spice-regular">Ayyub</span><span>❤️</span><span class="bungee-spice-regular">Beg'ubor</span>
 </div>
 <div id="wordWedding" class="bungee-spice-regular">
-    Wedding
+    Until Wedding
 </div>
 <div id="countdownResult" class="bungee-spice-regular"></div>
+<div class="bungee-spice-regular">
+    Left
+</div>
 </body>
 <script>
     // Set the date we're counting down to
@@ -81,7 +84,7 @@
 
             // Display the result in the element with id="countdown"
             let countdownElement = document.getElementById("countdownResult");
-            countdownElement.innerHTML = days + "<span class='subtext'>days</span> " + hours + "<span class='subtext'>hours</span> " + minutes + "<span class='subtext'>minutes</span> " + seconds + "<span class='subtext'>seconds</span> ";
+            countdownElement.innerHTML = days + "<span class='subtext'>days</span> " + hours + "<span class='subtext'>hours</span> " + minutes + "<span class='subtext'>minutes</span> " + seconds + "<span class='subtext'>seconds</span>";
 
             // If the countdown is finished, clearInterval and display a message
             if (distance < 0) {
