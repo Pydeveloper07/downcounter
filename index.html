@@ -42,18 +42,21 @@
             font-size: 4em;
         }
 
-        #countdownResult{
+        #countdownResult {
             font-size: 3em;
         }
 
         .subtext {
             font-size: 0.5em;
         }
+        #heartButton:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 <div id="mainTitle">
-    <span class="bungee-spice-regular">Ayyub</span><span>❤️</span><span class="bungee-spice-regular">Beg'ubor</span>
+    <span class="bungee-spice-regular">Ayyub</span><span id="heartButton" onclick="playAudio()">❤️</span><span class="bungee-spice-regular">Beg'ubor</span>
 </div>
 <div id="wordWedding" class="bungee-spice-regular">
     Until Wedding
@@ -62,35 +65,41 @@
 <div class="bungee-spice-regular">
     Left
 </div>
-</body>
 <script>
     // Set the date we're counting down to
-        let countDownDate = new Date("August 17, 2024 00:00:00").getTime();
+    let countDownDate = new Date("August 17, 2024 00:00:00").getTime();
 
-        // Update the countdown every 1 second
-        let countdownFunction = setInterval(function() {
+    // Update the countdown every 1 second
+    let countdownFunction = setInterval(function () {
 
-            // Get the current date and time
-            let now = new Date().getTime();
+        // Get the current date and time
+        let now = new Date().getTime();
 
-            // Calculate the distance between now and the countdown date
-            let distance = countDownDate - now;
+        // Calculate the distance between now and the countdown date
+        let distance = countDownDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Time calculations for days, hours, minutes and seconds
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="countdown"
-            let countdownElement = document.getElementById("countdownResult");
-            countdownElement.innerHTML = days + "<span class='subtext'>days</span> " + hours + "<span class='subtext'>hours</span> " + minutes + "<span class='subtext'>minutes</span> " + seconds + "<span class='subtext'>seconds</span>";
+        // Display the result in the element with id="countdown"
+        let countdownElement = document.getElementById("countdownResult");
+        countdownElement.innerHTML = days + "<span class='subtext'>days</span> " + hours + "<span class='subtext'>hours</span> " + minutes + "<span class='subtext'>minutes</span> " + seconds + "<span class='subtext'>seconds</span>";
 
-            // If the countdown is finished, clearInterval and display a message
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                countdownElement.innerHTML = "Congratulations! Enjoy your wedding!";
-            }
-        }, 1000);
+        // If the countdown is finished, clearInterval and display a message
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            countdownElement.innerHTML = "Congratulations! Enjoy your wedding!";
+        }
+    }, 1000);
+
+    let audio = new Audio('wedding-bg.mp3');
+
+    function playAudio() {
+        audio.play();
+    }
 </script>
+</body>
 </html>
