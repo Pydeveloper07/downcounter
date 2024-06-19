@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown to Fixed Date</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+    }
+    .countdown {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <h2>Countdown to Fixed Date</h2>
+    
+    <label for="fixedDate">Enter a fixed date (YYYY-MM-DD): </label>
+    <input type="text" id="fixedDate" placeholder="YYYY-MM-DD" required>
+    <button onclick="calculateDaysLeft()">Calculate</button>
+
+    <div class="countdown" id="countdownResult"></div>
+
+    <script>
+        function calculateDaysLeft() {
+            var inputDate = document.getElementById('fixedDate').value;
+            var fixedDate = new Date(inputDate);
+            var today = new Date();
+
+            // Calculate the difference in time
+            var difference = fixedDate.getTime() - today.getTime();
+
+            // Convert difference from milliseconds to days
+            var daysLeft = Math.ceil(difference / (1000 * 3600 * 24));
+
+            var countdownElement = document.getElementById('countdownResult');
+            countdownElement.textContent = "Days left until " + inputDate + ": " + daysLeft;
+        }
+    </script>
+</body>
+</html>
