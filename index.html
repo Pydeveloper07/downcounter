@@ -52,7 +52,7 @@
         }
 
         #heartButton {
-            margin: 0 10px;
+            margin: 0 5px;
         }
 
         #heartButton:hover {
@@ -62,22 +62,25 @@
         #heartButton img {
             width: 60px; /* Adjust size of heart image */
             height: auto;
+        }
+
+        .animated-heart img {
             animation: vibratingHeart 0.7s infinite alternate; /* Apply the vibrating animation */
         }
 
         @keyframes vibratingHeart {
             from {
-                transform: scale(1.2); /* Start position */
+                transform: scale(1.0); /* Start position */
             }
             to {
-                transform: scale(1.5); /* End position (adjust for desired movement) */
+                transform: scale(1.3); /* End position (adjust for desired movement) */
             }
         }
     </style>
 </head>
 <body>
 <div id="mainTitle">
-    <span class="bungee-spice-regular">Ayyub</span><span id="heartButton" onclick="playAudio()"><img src="heart.png" alt="Heart"></span><span
+    <span class="bungee-spice-regular">Ayyub</span><span id="heartButton" onclick="handleHeartClick()"><img src="heart.png" alt="Heart"></span><span
         class="bungee-spice-regular">Beg'ubor</span>
 </div>
 <div id="wordWedding" class="bungee-spice-regular">
@@ -119,7 +122,12 @@
 
     let audio = new Audio('wedding-bg.mp3');
 
-    function playAudio() {
+    function handleHeartClick() {
+        // Add animation class
+        let element = document.getElementById("heartButton");
+        element.className = "animated-heart"
+
+        // Play audio
         audio.loop = true;
         audio.play();
     }
